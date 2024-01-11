@@ -16,7 +16,7 @@ const NewBlog = () => {
     };
     setIsLoading(true);
     
-     fetch('',{
+     fetch('https://fine-blue-dhole-gear.cyclic.app/blogs/add',{
       method:"POST",
       headers:{
         "Content-type":"application/json",
@@ -27,7 +27,6 @@ const NewBlog = () => {
      .then((res)=>{
       console.log(res)
       setIsLoading(false);
-      
       toast({
         position: 'top',
         title: 'New Blog added',
@@ -42,11 +41,10 @@ const NewBlog = () => {
      .catch((err)=>console.log(err))
     
   };
-
   return (
     <div className="blog-container">
       <form className="blog-form" onSubmit={handleNewBlog}>
-        <h2>Create a Note</h2>
+        <h2>Write Your Blog</h2>
         <div className="input-group">
           <label htmlFor="title">Title</label>
           <input
@@ -65,7 +63,7 @@ const NewBlog = () => {
           />
         </div>
        {!isLoading &&<button type="submit" className="login-button">
-          Add Note
+          Add Blog
         </button>}
         {isLoading && <CircularProgress isIndeterminate color="blue.300" />}
       </form>

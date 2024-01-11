@@ -15,7 +15,7 @@ const Signup = () => {
     e.preventDefault();
     setIsLoading(true)
     const data={name,email,password}
-    fetch("",{
+    fetch("https://fine-blue-dhole-gear.cyclic.app/users/signUp",{
       method:"POST",
       headers:{
         "Content-type":"application/json"
@@ -24,10 +24,10 @@ const Signup = () => {
     }).then(res=>res.json())
      .then((res)=>{
       setIsLoading(false)
-      if(res.msg==="This Email is Alreay Registered"){
+      if(res.msg==="Email is Alreay Registered"){
         toast({
           position: 'top',
-          title: 'This Email is Alreay Registered',
+          title: 'Email is Alreay Registered',
           description: "Please login",
           status: 'error',
           duration: 3000,

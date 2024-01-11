@@ -18,7 +18,7 @@ const Login = () => {
     e.preventDefault();
     setIsLoading(true)
     const data={email,password}
-    fetch("http://localhost:8080/users/login",{
+    fetch("https://fine-blue-dhole-gear.cyclic.app/users/login",{
       method:"POST",
       headers:{
         "Content-type":"application/json"

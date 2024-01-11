@@ -1,17 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
-
+import '../Styles/blog.css'
 import { useToast ,CircularProgress} from "@chakra-ui/react";
-import NoBlogs from "./NoNotes";
+import NoBlogs from "./NoBlogs";
 const Blogs = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoading2, setIsLoading2] = useState(false);
   const toast=useToast()
-  const [notes, setNotes] = useState([]);
-  console.log(notes);
-  const getNotes = () => {
+  const [blog, setBlog] = useState([]);
+ 
+  const getBlog = () => {
     setIsLoading(true)
-    fetch("", {
+    fetch("https://fine-blue-dhole-gear.cyclic.app/blogs", {
       headers: {
         Authorization: `${localStorage.getItem("token")}`,
       },
@@ -19,16 +19,16 @@ const Blogs = () => {
       .then((res) => res.json())
       .then((res) => {
         setIsLoading(false)
-        setNotes(res);
+        setBlog(res);
       })
       .catch((err) => console.log(err));
   };
   useEffect(() => {
-    getNotes();
+    getBlog();
   }, []);
   const handleDelete = (id) => {
      setIsLoading2(true)
-    fetch(`https://worrisome-goat-raincoat.cyclic.app/notes/delete/${id}`, {
+    fetch(`https://fine-blue-dhole-gear.cyclic.app/blogs/delete/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -38,10 +38,10 @@ const Blogs = () => {
      .then((res)=>{
       setIsLoading2(false)
       console.log(res)
-      getNotes()
+      getBlog()
       toast({
         position: 'top',
-        title: 'Notes deleted successfull',
+        title: 'Blogs deleted successfull',
         status: 'success',
         duration: 3000,
         isClosable: true,
@@ -56,21 +56,27 @@ const Blogs = () => {
     return <div style={{marginTop:"200px"}}><CircularProgress isIndeterminate color="blue.300" /></div>
   }
   return (
-    <div className="notes-container">
-      <div className="notes-list">
-        {notes.length > 0 ? (
-          notes.map((note, index) => (
-            <div key={index} className="note">
-              <h3>{note.title}</h3>
-              <p>{note.content}</p>
-              <p className="timestamp">Created on: {note.timestamp}</p>
+    <div className="blogs-container">
+      <div className="blogs-list">
+        {blog.length > 0 ? (
+          blog.map((blog, index) => (
+            
+            <div key={index} className="blog">
+               <h1>{blog.title}</h1>
+              <h2>{blog.content}</h2>
+              <p className="timestamp">Created on: {blog.timestamp}</p>
+              <div>
               <button
                 className="delete-button"
-                onClick={() => handleDelete(note._id)}
+                onClick={() => handleDelete(blog._id)}
               >
                 Delete
               </button>
+              </div>
             </div>
+            
+            
+            
           ))
         ) : (
           <NoBlogs />

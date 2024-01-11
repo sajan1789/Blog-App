@@ -1,0 +1,21 @@
+.blogs-list{
+   display: grid;
+   grid-template-columns: repeat(4,1fr);
+   gap: 40px;
+   margin-top: 20px;
+   padding: 40px;
+}
+.blog{
+     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+     padding: 40px;
+     background-color: rgb(97, 177, 163);
+     text-align: center;
+}
+.timestamp{
+    color: black;
+    font-size: 12px;
+}
+.delete-button{
+    margin-top: 20px;
+    background-color: rgb(141, 46, 133);
+}

@@ -1,0 +1,19 @@
+.noBlog{
+
+ 
+ justify-content: center;
+ align-items: center;
+ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+ min-height: 20vh;  
+ padding: 10px;
+}
+.noBlog h1{
+    font-size: 20px;
+}
+.btn{
+    background-color: blue;
+    color: aliceblue;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 0 10px 0 10px;
+}
