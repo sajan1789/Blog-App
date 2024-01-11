@@ -5,6 +5,7 @@
    margin-top: 20px;
    padding: 40px;
 }
+
 .blog{
      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
      padding: 40px;
@@ -18,4 +19,23 @@
 .delete-button{
     margin-top: 20px;
     background-color: rgb(141, 46, 133);
+}
+
+@media (max-width: 900px) {
+    .blogs-list{
+        grid-template-columns: repeat(3,1fr);
+    }
+
+}
+@media (max-width: 650px) {
+    .blogs-list{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+}
+@media (max-width: 450px) {
+    .blogs-list{
+        grid-template-columns: repeat(1,1fr);
+    }
+
 }
