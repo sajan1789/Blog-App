@@ -30,11 +30,18 @@ userRoutes.post("/signUp",async(req,res)=>{
      const {name,email,password}=req.body;
      console.log(name,email,password)
      try{
-       bcrypt.hash(password,3,async(err,hash)=>{
+      const user = await UserModel.findOne({ email });
+      if(!user){
+         bcrypt.hash(password,3,async(err,hash)=>{
             const newUser=new UserModel({name,email,password:hash})
             await newUser.save()
             res.send({"msg":"Registration SuccessFull"})
        })
+      }
+      else{
+         res.status(400).send( {msg:"Email is Alreay Registered"});
+      }
+       
      }
      catch(err){
         res.send({"error":err.message})

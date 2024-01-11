@@ -2,6 +2,8 @@ const {userRoutes}=require("./Routes/userRoutes")
 const { BlogRoutes}=require("./Routes/BlogRoutes")
 const express=require("express")
 const app=express()
+const cors = require("cors");
+app.use(cors());
 const {connection}=require("./db")
 app.use("/users",userRoutes)
 app.use("/blogs",BlogRoutes)
