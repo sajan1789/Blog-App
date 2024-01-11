@@ -74,44 +74,54 @@ const Navbar = () => {
            
           />
           <MenuList  >
+          <Link to="/" className="navbar-link" >
             <MenuItem  _hover={{ bg: 'gray.400' }}>
               <li className="navbar-item"  >
-                <Link to="/" className="navbar-link" >
-                  Home
-                </Link>
+               
+               Home
+         
+                 
+               
               </li>
             </MenuItem >
+            </Link>
             <MenuItem   _hover={{ bg: 'gray.400' }} >
-              <li className="navbar-item">
+              
                 {user ? (
-                  <Link
+                  <Link style={{paddingRight:"170px"}}
                     to="/"
                     className="navbar-link"
-                    onClick={() => dispatch(logout())}
+                    onClick={() => dispatch(logout())  }
                   >
-                    Logout
+                    
+                    <li className="navbar-item">Logout</li>
                   </Link>
                 ) : (
-                  <Link to="/login" className="navbar-link">
-                    Login
+                  <Link to="/login" className="navbar-link"  style={{paddingRight:"170px"}}>
+                    <li className="navbar-item">Login</li>
+                    
                   </Link>
                 )}
-              </li>
+              
             </MenuItem>
+            <Link to="/newblog" className="navbar-link">
             <MenuItem  _hover={{ bg: 'gray.400' }}>
               <li className="navbar-item">
-                <Link to="/newblog" className="navbar-link">
+                
                   Add-Blogs
-                </Link>
+                
               </li>
             </MenuItem>
+            </Link>
+            <Link to="/blogs" className="navbar-link">
             <MenuItem  _hover={{ bg: 'gray.400' }}>
               <li className="navbar-item">
-                <Link to="/blogs" className="navbar-link">
+                
                   All Blogs
-                </Link>
+                
               </li>
             </MenuItem > 
+            </Link>
             <MenuItem _hover={{ bg: 'gray.400' }}>
               {user ? (
                 <li className="navbar-item">

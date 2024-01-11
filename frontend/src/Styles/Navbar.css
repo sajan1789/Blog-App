@@ -34,12 +34,14 @@
   .navbar-item {
 
     margin-left: 20px;
+    text-decoration: none;
   }
   
   .navbar-link {
     text-decoration: none;
     color: rgb(15, 15, 15);
     font-size: 16px;
+    
   }
   
   .navbar-link:hover {
@@ -49,6 +51,11 @@
 .navbar-in-mobile-mode{
   display: none;
 }
+.a{
+ 
+  border: 1px solid red;
+
+}
 @media (max-width: 768px) {
   .navbar-links {
     display: none; 
@@ -57,3 +64,4 @@
     display: block;
   }
 }
+
