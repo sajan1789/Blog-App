@@ -3,7 +3,6 @@ const express=require("express")
 const userRoutes=express.Router()
 const jwt = require("jsonwebtoken");
 userRoutes.use(express.json())
-const bcrypt=require("bcrypt")
 const {UserModel}=require("../Model/usersModel")
 userRoutes.post("/login",async(req,res)=>{
      const {email,password}=req.body

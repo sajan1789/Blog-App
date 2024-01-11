@@ -4,7 +4,9 @@ const indivisualBlog=mongoose.Schema(
     {
         title:{type:String,required:true},
         content:{type:String,required:true},
-        timeStamp:{type:String}
+        userId: String,
+        timestamp:String,
+    
     },
     {versionKey:false}
 )
