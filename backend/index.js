@@ -1,9 +1,16 @@
-
+const {userRoutes}=require("./Routes/userRoutes")
 const express=require("express")
 const app=express()
-app.get("/",(req,res)=>{
-      res.send("home-page")
-})
-app.listen(8080,()=>{
-    console.log("server is running on port 8080")
+const {connection}=require("./db")
+app.use("/users",userRoutes)
+
+app.listen(8080,async()=>{
+    try{
+     await   connection
+     console.log("connected")
+    }
+    catch(err){
+        res.send({"err":err.message})
+    }
+     
 })

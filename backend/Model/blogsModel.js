@@ -1,6 +1,5 @@
 
 const mongoose=require("mongoose")
-
 const indivisualBlog=mongoose.Schema(
     {
         title:{type:String,required:true},
@@ -9,3 +8,8 @@ const indivisualBlog=mongoose.Schema(
     },
     {versionKey:false}
 )
+
+const indivisualBlogModel=mongoose.model('Blog',indivisualBlog)
+module.exports={
+     indivisualBlogModel
+}
